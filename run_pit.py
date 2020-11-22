@@ -73,7 +73,8 @@ def uttloader(scp_config, reader_kwargs, loader_kwargs, train=True):
 
     utt_loader = DataLoader(dataset, batch_size=40,shuffle=loader_kwargs['shuffle'],
                             num_workers=10, sampler=None,drop_last=True,
-                            collate_fn=_collate)
+                            collate_fn=_collate,
+                           mvn_dict= loader_kwargs["mvn_dict"])
     return utt_loader
 
 
