@@ -43,9 +43,9 @@ for root, dirs, files in os.walk(tr_mx):
         key = file[:-4]
         s1 = file[:11] + ".wav"
         s2 = file[12:23] + ".wav"
-        w1.write(key + " " + avs_audio + "/avs_tr/spk1/" + s1)
-        w2.write(key + " " + avs_audio + "/avs_tr/spk2/" + s2)
-        wm.write(key + " " + avs_audio + "/avs_tr/mix/" + file)
+        w1.write(key + " " + avs_audio + "/avs_tr/spk1/" + s1 + '\n')
+        w2.write(key + " " + avs_audio + "/avs_tr/spk2/" + s2 + '\n')
+        wm.write(key + " " + avs_audio + "/avs_tr/mix/" + file + '\n')
 
 w1.close()
 w2.close()
@@ -61,9 +61,9 @@ for root, dirs, files in os.walk(tt_mx):
         key = file[:-4]
         s1 = file[:11] + ".wav"
         s2 = file[12:23] + ".wav"
-        w1.write(key + " " + avs_audio + "/avs_tt/spk1/" + s1)
-        w2.write(key + " " + avs_audio + "/avs_tt/spk2/" + s2)
-        wm.write(key + " " + avs_audio + "/avs_tt/mix/" + file)
+        w1.write(key + " " + avs_audio + "/avs_tt/spk1/" + s1 + '\n')
+        w2.write(key + " " + avs_audio + "/avs_tt/spk2/" + s2 + '\n')
+        wm.write(key + " " + avs_audio + "/avs_tt/mix/" + file + '\n')
 
 w1.close()
 w2.close()
@@ -79,9 +79,9 @@ for root, dirs, files in os.walk(cv_mx):
         key = file[:-4]
         s1 = file[:11] + ".wav"
         s2 = file[12:23] + ".wav"
-        w1.write(key + " " + avs_audio + "/avs_cv/spk1/" + s1)
-        w2.write(key + " " + avs_audio + "/avs_cv/spk2/" + s2)
-        wm.write(key + " " + avs_audio + "/avs_cv/mix/" + file)
+        w1.write(key + " " + avs_audio + "/avs_cv/spk1/" + s1 + '\n')
+        w2.write(key + " " + avs_audio + "/avs_cv/spk2/" + s2 + '\n')
+        wm.write(key + " " + avs_audio + "/avs_cv/mix/" + file + '\n')
 
 w1.close()
 w2.close()
