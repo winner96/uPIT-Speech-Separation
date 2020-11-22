@@ -62,7 +62,7 @@ def uttloader(scp_config, reader_kwargs, loader_kwargs, train=True):
         SpectrogramReader(scp_config[spk_key], **reader_kwargs)
         for spk_key in scp_config if spk_key[:3] == 'spk'
     ]
-    dataset = Datasets(mix_reader, target_reader)
+    dataset = Datasets(mix_reader, target_reader, mvn_dict= loader_kwargs["mvn_dict"])
     # modify shuffle status
     loader_kwargs["shuffle"] = train
     # validate perutt if needed
@@ -73,8 +73,8 @@ def uttloader(scp_config, reader_kwargs, loader_kwargs, train=True):
 
     utt_loader = DataLoader(dataset, batch_size=40,shuffle=loader_kwargs['shuffle'],
                             num_workers=10, sampler=None,drop_last=True,
-                            collate_fn=_collate,
-                           mvn_dict= loader_kwargs["mvn_dict"])
+                            collate_fn=_collate)
+#                           mvn_dict= loader_kwargs["mvn_dict"])
     return utt_loader
 
 
