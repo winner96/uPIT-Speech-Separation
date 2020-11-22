@@ -106,9 +106,10 @@ class PITrainer(object):
 
             if self.disturb:
                 self.nnet.disturb(self.disturb)
-
-            masks = th.nn.parallel.data_parallel(
-                self.nnet, nnet_input, device_ids=self.gpuid)
+            masks = self.nnet(nnet_input)
+            #below make error for me
+            #masks = th.nn.parallel.data_parallel(
+            #    self.nnet, nnet_input, device_ids=self.gpuid)
             cur_loss = self.permutate_loss(masks, input_sizes, source_attr,
                                            target_attr)
             tot_loss += cur_loss.item()
