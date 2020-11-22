@@ -137,8 +137,9 @@ class PITrainer(object):
                 nnet_input = packed_sequence_cuda(nnet_input, self.device) if isinstance(
                     nnet_input, PackedSequence) else nnet_input.to(self.device)
                 
-                masks = th.nn.parallel.data_parallel(self.nnet,nnet_input,device_ids=self.gpuid)
-                #masks = self.nnet(nnet_input)
+                #masks = th.nn.parallel.data_parallel(self.nnet,nnet_input,device_ids=self.gpuid)
+                #no reason for # but mad error on me(parallel.data)
+                masks = self.nnet(nnet_input)
                 #print(masks[0].shape,source_attr['spectrogram'].shape)
                 #import pdb
                 #pdb.set_trace()
