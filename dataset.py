@@ -37,12 +37,12 @@ class SpectrogramReader(object):
     def _load(self, key):
         return stft(self.wave_dict[key], **self.stft_kwargs)
 
-    '''
+    
     # sequential index
     def __iter__(self):
         for key in self.wave_dict:
             yield key, self._load(key)
-    '''
+    
     # random index
 
     def __getitem__(self, key):
