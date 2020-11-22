@@ -1,7 +1,7 @@
 import os
 import sys
 
-mydir = os.getcwd()
+mydir = os.path.dirname(__file__)
 scp_dir = mydir + "/scp"
 
 if len(sys.argv) > 1:
